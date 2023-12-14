@@ -38,8 +38,8 @@
           >
         </li>
         <li class="hover:scale-110">
-          <NuxtLink to="/about" class="pl-4 sm:pl-8 md:pl-12 lg:pl-16 font-main"
-            >Projects</NuxtLink
+          <NuxtLink to="/game" class="pl-4 sm:pl-8 md:pl-12 lg:pl-16 font-main"
+            >Game</NuxtLink
           >
         </li>
         <li class="hover:scale-110">
@@ -70,9 +70,9 @@
       </li>
       <li>
         <NuxtLink
-          to="/about"
+          to="/game"
           class="block py-2 px-4 text-black pl-8 hover:text-gray-900 hover:scale-110"
-          >Projects</NuxtLink
+          >Game</NuxtLink
         >
       </li>
       <li>

@@ -1,8 +1,8 @@
 <template>
   <div
     v-if="!animationEnd"
-    class="min-h-screen pt-16 text-center flex justify-center items-center relative overflow-hidden"
-    :style="`transform: scale(${initial}); transform-origin: 50% 80%;`"
+    class="min-h-screen pt-16 text-center flex justify-center items-center relative overflow-hidden pb-96"
+    :style="`transform: scale(${initial}); transform-origin: center center;`"
   >
     <div class="icon-container">
       <Icon name="twemoji:frog" size="500" />
@@ -16,41 +16,43 @@
       ></div>
     </div>
   </div>
-  <div v-if="animationEnd" class="min-h-screen bg-pink-200 p-4">
+  <div v-if="animationEnd" class="min-h-screen bg-pink-200 w-full">
     <div
-      class="px-2 py-10 font-main font-bold pt-16 grid grid-flow-col-1 gap-10 text-center"
+      class="py-20 font-main font-bold grid grid-col-1 gap-5 text-center mx-auto p-4"
       :style="{ opacity: initialOpacity }"
     >
-      <h1 class="text-7xl font-extrabold">Welcome to Ribbitville!</h1>
-      <p class="bg-green-600 w-auto h-1" />
+      <h1 class="text-4xl lg:text-7xl font-extrabold text-center pt-4">
+        Welcome to Ribbitville!
+      </h1>
+      <p class="bg-green-600 w-auto h-1 mt-2" />
 
-      <p class="text-2xl">
+      <p class="text-lg md:text-2xl">
         Dive into the pond of ribbeting knowledge, where our resident frogs are
         always ready to share their hoppy tales and croak-tastic stories. 📚🐸
       </p>
 
-      <p class="text-2xl">
+      <p class="text-lg md:text-2xl">
         Our community of leap enthusiasts is as diverse as the frog species
         themselves! Join us in the Lily Pad Lounge, where discussions range from
         favorite pond snacks to the latest in froggy fashion. 🌈👗
       </p>
 
-      <p class="text-2xl">
+      <p class="text-lg md:text-2xl">
         Don't miss out on our legendary Ribbit Rendezvous events, where frogs
         from near and far come together to showcase their most spectacular leaps
         and groovy moves. 🎉💃
       </p>
 
-      <p class="text-2xl">
+      <p class="text-lg md:text-2xl">
         So, whether you're a seasoned froggy fanatic or a curious tadpole,
         Ribbitville is the place to be. Ribbit, ribbit! 🏡🌳
       </p>
 
-      <p class="text-2xl">
+      <p class="text-lg md:text-2xl">
         Ribbitville – where every hop is an adventure and every croak is a
         symphony! 🐾🎶
       </p>
-      <div class="flex justify-between">
+      <div class="flex flex-wrap justify-between">
         <Icon name="vscode-icons:file-type-lilypond" size="100" />
         <Icon name="vscode-icons:file-type-lilypond" size="100" />
         <Icon name="vscode-icons:file-type-lilypond" size="100" />
@@ -68,6 +70,20 @@
 }
 .tongue {
   border-radius: 50% / 0 0 100% 100%;
+}
+
+@media screen and (min-width: 768px) {
+  /* Apply styles for screens with a width of 768 pixels or more */
+  .min-h-screen {
+    transform-origin: 50% 80%; /* Change the transform origin for larger screens */
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  /* Apply styles for screens with a width of 1024 pixels or more */
+  .min-h-screen {
+    transform-origin: 50% 68%; /* Change the transform origin for even larger screens */
+  }
 }
 </style>
 
