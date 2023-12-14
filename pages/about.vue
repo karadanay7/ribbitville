@@ -2,27 +2,24 @@
   <div
     v-if="!animationEnd"
     class="min-h-screen pt-16 text-center flex justify-center items-center relative overflow-hidden"
-    :style="`transform: scale(${initial}); transform-origin: 50% 73%;`"
+    :style="`transform: scale(${initial}); transform-origin: 50% 80%;`"
   >
     <div class="icon-container">
       <Icon name="twemoji:frog" size="500" />
     </div>
     <div class="absolute pt-[140px] justify-center flex mx-3">
       <div
-        class="mouth absolute rounded-full w-[498px] h-24 border-8 border-black bg-gray-700"
+        class="mouth absolute w-[498px] h-24 border-8 border-black bg-gray-700"
       ></div>
       <div
         class="tongue absolute w-[240px] h-16 mt-16 rounded-full bg-pink-200 z-10"
       ></div>
     </div>
   </div>
-  <div
-    v-if="animationEnd"
-    class="min-h-screen bg-pink-200 p-4"
-    :style="{ opacity: initialOpacity }"
-  >
+  <div v-if="animationEnd" class="min-h-screen bg-pink-200 p-4">
     <div
       class="px-2 py-10 font-main font-bold pt-16 grid grid-flow-col-1 gap-10 text-center"
+      :style="{ opacity: initialOpacity }"
     >
       <h1 class="text-7xl font-extrabold">Welcome to Ribbitville!</h1>
       <p class="bg-green-600 w-auto h-1" />
@@ -75,27 +72,57 @@
 </style>
 
 <script setup>
-const initial = ref(0);
+const initial = ref(0.5);
 const animationEnd = ref(false);
 const initialOpacity = ref(0);
+let scalingComplete = false;
 
-const scale = setInterval(() => {
-  initial.value += 0.6;
-  if (initial.value > 20) {
-    clearInterval(scale);
+const startAnimation = () => {
+  requestAnimationFrame(scaleAnimation);
+};
+
+const scaleAnimation = (timestamp) => {
+  const progress = timestamp / 2500; // Convert timestamp to seconds
+
+  initial.value = lerp(0.5, 15, progress);
+
+  if (initial.value >= 15) {
+    scalingComplete = true;
     animationEnd.value = true;
     startOpacityAnimation();
+    return;
   }
-  requestAnimationFrame();
-}, 120);
 
-function startOpacityAnimation() {
-  const opacity = setInterval(() => {
-    initialOpacity.value += 0.02; // Adjust the step as needed
-    if (initialOpacity.value > 1) {
-      clearInterval(opacity);
-    }
-    requestAnimationFrame();
-  }, 40); // Adjust the interval as needed
-}
+  requestAnimationFrame(scaleAnimation);
+};
+
+const startOpacityAnimation = () => {
+  if (!scalingComplete) {
+    // Wait for scaling to complete
+    requestAnimationFrame(startOpacityAnimation);
+    return;
+  }
+
+  requestAnimationFrame(opacityAnimation);
+};
+
+const opacityAnimation = (timestamp) => {
+  const progress = timestamp / 4000; // Convert timestamp to seconds
+
+  initialOpacity.value = lerp(0, 1, progress);
+
+  if (initialOpacity.value >= 1) {
+    return;
+  }
+
+  requestAnimationFrame(opacityAnimation);
+};
+
+const lerp = (start, end, progress) => {
+  return start + progress * (end - start);
+};
+
+onMounted(() => {
+  startAnimation();
+});
 </script>
