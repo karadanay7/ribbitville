@@ -43,8 +43,8 @@
           >
         </li>
         <li class="hover:scale-110">
-          <NuxtLink to="/about" class="pl-4 sm:pl-8 md:pl-12 lg:pl-16 font-main"
-            >Blog</NuxtLink
+          <NuxtLink to="/frogs" class="pl-4 sm:pl-8 md:pl-12 lg:pl-16 font-main"
+            >Frogs</NuxtLink
           >
         </li>
       </ul>
@@ -77,10 +77,10 @@
       </li>
       <li>
         <NuxtLink
-          to="/about"
+          to="/frogs"
           class="block py-2 px-4 text-black pl-8 hover:text-gray-900 hover:scale-110"
           aria-current="page"
-          >Blog</NuxtLink
+          >Frogs</NuxtLink
         >
       </li>
     </ul>

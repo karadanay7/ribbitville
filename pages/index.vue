@@ -10,7 +10,7 @@
           <div
             class="bg-white border-4 border-pink-200 rounded-2xl font-main font-bold text-center p-4"
           >
-            <h1 class="text-5xl md:text-7xl font-extrabold">
+            <h1 class="text-5xl md:text-5xl lg:text-7xl font-extrabold">
               Welcome to Ribbitville!
             </h1>
             <Icon
