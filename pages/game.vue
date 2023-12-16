@@ -1,12 +1,17 @@
 <template>
-  <div class="min-h-screen bg-white flex flex-col items-center justify-center">
-    <h1 class="text-5xl mb-4 text-gray-700 font-mono">
+  <div
+    class="min-h-screen bg-white flex flex-col items-center justify-center pt-16"
+  >
+    <h1 class="text-3xl md:text-5xl mb-4 text-gray-700 font-mono">
       {{ result }}
       <div v-if="result === '' && currentPlayer !== ''">
         It's {{ currentPlayer === "twemoji:frog" ? "your" : "computer" }} turn
       </div>
     </h1>
-    <div class="bg-white border-2 border-green-500" style="margin: -2px">
+    <div
+      class="bg-white border-2 border-green-500 my-auto"
+      style="margin: -2px"
+    >
       <div
         v-for="(row, rowIndex) in board"
         :key="rowIndex"
@@ -16,9 +21,9 @@
           v-for="(cell, colIndex) in row"
           :key="colIndex"
           @click="makeMove(rowIndex, colIndex)"
-          class="h-44 w-44 flex items-center justify-center border-2 border-green-500 cursor-pointer"
+          class="h-22 w-22 md:h-44 md:w-44 flex items-center justify-center border-2 border-green-500 cursor-pointer"
         >
-          <Icon :name="cell" size="100" />
+          <Icon :name="cell" size="100" class="p-2 md:p-0" />
         </div>
       </div>
     </div>
@@ -33,8 +38,6 @@
 </template>
 
 <script setup>
-import { onMounted, ref } from "vue";
-
 const board = ref([
   ["", "", ""],
   ["", "", ""],
