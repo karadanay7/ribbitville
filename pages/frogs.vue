@@ -1,12 +1,16 @@
 <template>
   <div class="bg-pink-100 min-h-screen pt-16 font-main">
+    <h1 class="text-center text-3xl md:text-5xl pt-4 text-gray-600 font-bold">
+      Anime Characters
+    </h1>
+
     <div
-      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mx-auto gap-12 px-10 pt-16"
+      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mx-auto gap-12 px-10 pt-12"
     >
       <div
         v-for="frog in frogs"
         :key="frog.id"
-        class="border-2 border-green-500 rounded-xl h-full bg-white p-4 flex flex-col"
+        class="border-2 border-green-500 rounded-xl h-full bg-white p-4 flex flex-col shadow-2xl"
       >
         <h1 class="text-center text-4xl font-sans text-green-800">
           {{ frog.title }}
@@ -15,7 +19,7 @@
           <img
             :src="frog.image"
             :alt="frog.title"
-            class="h-44 w-44 object-cover rounded-xl border-2 border-green-600 p-1 justify-start"
+            class="h-44 w-44 object-cover rounded-full border-2 border-green-600 p-1 justify-start shadow-2xl hover:scale-110"
           />
         </div>
 

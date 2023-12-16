@@ -27,13 +27,14 @@
         </div>
       </div>
     </div>
-
-    <button
-      @click="restartGame"
-      class="mt-4 bg-green-500 text-white h-10 w-40 rounded text-bold text-xl"
-    >
-      {{ result ? "Restart" : "Start Game" }}
-    </button>
+    <div class="mt-4 h-11 w-40 bg-green-500 p-1 rounded-3xl hover:scale-110">
+      <button
+        @click="restartGame"
+        class="bg-green-500 text-white h-full w-full rounded-3xl text-bold text-xl border border-white hover:text-2xl hover:border-2"
+      >
+        {{ result ? "Restart" : "Start Game" }}
+      </button>
+    </div>
   </div>
 </template>
 
