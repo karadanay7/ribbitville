@@ -2,7 +2,7 @@
   <div
     class="min-h-screen bg-white flex flex-col items-center justify-center pt-16"
   >
-    <h1 class="text-3xl md:text-5xl mb-4 text-gray-700 font-mono">
+    <h1 class="text-3xl md:text-5xl mb-4 text-gray-700 font-mono pt-2">
       {{ result }}
       <div v-if="result === '' && currentPlayer !== ''">
         It's {{ currentPlayer === "twemoji:frog" ? "your" : "computer" }} turn
@@ -21,7 +21,7 @@
           v-for="(cell, colIndex) in row"
           :key="colIndex"
           @click="makeMove(rowIndex, colIndex)"
-          class="h-22 w-22 md:h-44 md:w-44 flex items-center justify-center border-2 border-green-500 cursor-pointer"
+          class="h-22 w-22 md:h-40 md:w-40 flex items-center justify-center border-2 border-green-500 cursor-pointer"
         >
           <Icon :name="cell" size="100" class="p-2 md:p-0" />
         </div>
